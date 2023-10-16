@@ -1,0 +1,18 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/writeonlyhugo/templates/tailwind"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "tailwindcss": "^3.3.2"
+  },
+  "name": "hugo-template-tailwind",
+  "version": "0.1.0"
+}

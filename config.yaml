@@ -1,0 +1,48 @@
+baseURL: 'https://example.org'
+languageCode: 'en-us'
+theme: "website-theme"
+
+title: 'Website Title'
+author: "Website Author"
+
+# googleAnalytics: ""
+
+params:
+  description: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed libero
+    id leo finibus finibus. Mauris mattis varius velit eu ullamcorper. Mauris
+    tincidunt felis turpis, sit amet fringilla leo volutpat in.
+
+  images: []
+
+copyright: "Lorem Ipsum"
+
+taxonomies:
+  categories: "categories"
+  series: "series"
+  tags: "tags"
+
+minify:
+  minifyOutput: true
+
+build:
+  buildStats:
+    enable: true
+
+  cachebusters:
+  - source: "assets/watching/hugo_stats\\.json"
+    target: "styles\\.scss"
+
+  - source: "(postcss|tailwind)\\.config\\.js"
+    target: "scss"
+
+  - source: "assets/.*\\.(js|ts|jsx|tsx)"
+    target: "js"
+
+  - source: "assets/.*\\.(.*)$"
+    target: "$1"
+
+module:
+  mounts:
+    source: "hugo_stats.json"
+    target: "assets/watching/hugo_stats.json"

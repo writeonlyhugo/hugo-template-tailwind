@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main class="prose mx-auto">
+  <h1 class="mb-8 text-4xl">{{ .Title }}</h1>
+
+  {{ range .Pages }}
+  <a class="text-4xl" href="{{ .Permalink }}">{{ .Title }}</a>
+  {{ end }}
+</main>
+{{ end }}
