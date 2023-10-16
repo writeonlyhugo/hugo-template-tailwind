@@ -1,9 +1,9 @@
 baseURL: 'https://example.org'
 languageCode: 'en-us'
-theme: "website-theme"
+theme: 'website-theme'
 
 title: 'Website Title'
-author: "Website Author"
+author: 'Website Author'
 
 # googleAnalytics: ""
 
@@ -15,12 +15,12 @@ params:
 
   images: []
 
-copyright: "Lorem Ipsum"
+copyright: 'Lorem Ipsum'
 
 taxonomies:
-  categories: "categories"
-  series: "series"
-  tags: "tags"
+  categories: 'categories'
+  series: 'series'
+  tags: 'tags'
 
 minify:
   minifyOutput: true
@@ -30,19 +30,19 @@ build:
     enable: true
 
   cachebusters:
-  - source: "assets/watching/hugo_stats\\.json"
-    target: "styles\\.scss"
+    - source: "assets/watching/hugo_stats\\.json"
+      target: "styles\\.scss"
 
-  - source: "(postcss|tailwind)\\.config\\.js"
-    target: "scss"
+    - source: "(postcss|tailwind)\\.config\\.js"
+      target: 'scss'
 
-  - source: "assets/.*\\.(js|ts|jsx|tsx)"
-    target: "js"
+    - source: "assets/.*\\.(js|ts|jsx|tsx)"
+      target: 'js'
 
-  - source: "assets/.*\\.(.*)$"
-    target: "$1"
+    - source: "assets/.*\\.(.*)$"
+      target: '$1'
 
 module:
   mounts:
-    source: "hugo_stats.json"
-    target: "assets/watching/hugo_stats.json"
+    source: 'hugo_stats.json'
+    target: 'assets/watching/hugo_stats.json'
