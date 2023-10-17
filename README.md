@@ -16,9 +16,10 @@ layouts, and styles, making it easy to start building your website right away.
 
 To create a new Hugo project using this starter template, follow these steps:
 
-1. **Prerequisites**: Ensure you have Hugo installed on your local machine. You
-   can download and install Hugo from [Hugo's official
-   website](https://gohugo.io/getting-started/installing/).
+1. **Prerequisites**: Ensure you have Hugo and Node installed on your local
+   machine. You can download and install Hugo from [Hugo's official
+   website](https://gohugo.io/getting-started/installing/) and Node from
+   [Node's official website](https://nodejs.org/).
 
 3. **Clone this Starter Template**: Clone this repository You can do this via
    git or by downloading the repository as a ZIP archive and extracting it into
