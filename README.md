@@ -63,9 +63,10 @@ To create a new Hugo project using this starter template, follow these steps:
 If you want to contribute or report issues with this starter template, please
 feel free to [open an
 issue](https://github.com/writeonlyhugo/hugo-template-tailwind/issues) or submit
-a pull request. I appreciate your contributions and caffeine-fueled support! ☕
+a pull request. And if you want to keep me going, feel free to buy me a coffee -
+I appreciate your contributions and caffeine-fueled support!
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/writeonlycode)
+<a href="https://www.buymeacoffee.com/writeonlycode" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Acknowledgments
 
