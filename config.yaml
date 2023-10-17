@@ -47,3 +47,7 @@ module:
   mounts:
     source: 'hugo_stats.json'
     target: 'assets/watching/hugo_stats.json'
+
+markup:
+  highlight:
+    style: "github-dark"
