@@ -72,5 +72,5 @@ a pull request.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for
   rapidly building custom designs.
 
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-red.png)](https://www.buymeacoffee.com/writeonlycode)
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/writeonlycode)
 
