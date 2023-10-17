@@ -65,6 +65,10 @@ feel free to [open an
 issue](https://github.com/writeonlyhugo/hugo-template-tailwind/issues) or submit
 a pull request.
 
+I appreciate your contributions and caffeine-fueled support! ☕
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/writeonlycode)
+
 ## Acknowledgments
 
 - [Hugo](https://gohugo.io/) - The world's fastest framework for building
@@ -72,5 +76,4 @@ a pull request.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for
   rapidly building custom designs.
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/writeonlycode)
 
