@@ -27,15 +27,19 @@ To create a new Hugo project using this starter template, follow these steps:
    ```bash
    git clone https://github.com/writeonlyhugo/hugo-template-tailwind .
    ```
+   
+   Don't forget to remove the `.git` folder, and to initialize your own git
+   repository if needed.
 
 5. **Customize Configuration**: Edit the `config.toml` file to configure your
    website settings and modify the example content in the `content` directory
    or replace it with your content.
 
-6. **Build and Serve Your Site**: Start a development server to see your
-   website in action.
+6. **Build and Serve Your Site**: Install the NPM dependencies and start a
+   development server to see your website in action.
 
    ```bash
+   npm install
    hugo server -D
    ```
 
