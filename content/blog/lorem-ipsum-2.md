@@ -1,5 +1,5 @@
 ---
-title: "Lorem Ipsum"
+title: "Lorem Ipsum Two"
 ---
 
 Lorem repudiandae quae blanditiis officia fugit Nulla repellat sequi impedit in

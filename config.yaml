@@ -16,6 +16,7 @@ params:
   images: []
 
 copyright: 'Lorem Ipsum'
+paginate: 5
 
 taxonomies:
   categories: 'categories'
