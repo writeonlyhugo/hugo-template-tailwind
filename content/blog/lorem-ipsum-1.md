@@ -1,5 +1,6 @@
 ---
 title: "Lorem Ipsum One"
+date: "2023-10-08"
 ---
 
 Lorem repudiandae quae blanditiis officia fugit Nulla repellat sequi impedit in

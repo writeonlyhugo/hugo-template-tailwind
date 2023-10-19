@@ -1,5 +1,6 @@
 ---
 title: "Lorem Ipsum Six"
+date: "2022-09-09"
 ---
 
 Lorem repudiandae quae blanditiis officia fugit Nulla repellat sequi impedit in

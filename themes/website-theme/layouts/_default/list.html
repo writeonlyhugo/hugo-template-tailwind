@@ -5,7 +5,9 @@
       {{ range .Paginator.Pages }}
         <li class="flex items-center justify-between">
           <a class="my-0 text-blue-400 hover:to-blue-500" href="{{ .Permalink }}">{{ .Title }}</a>
-          <span class="my-0">{{ .Date.Format "Jan 2, 2006" }}</span>
+          {{ with .Date }}
+            <span class="my-0">{{ .Format "Jan 2, 2006" }}</span>
+          {{ end }}
         </li>
       {{ end }}
       {{ template "_internal/pagination.html" . }}

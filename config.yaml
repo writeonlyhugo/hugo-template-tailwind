@@ -18,22 +18,22 @@ params:
 copyright: 'Lorem Ipsum'
 paginate: 5
 
-menu:
-  main:
-    - name: "Lorem Ipsum"
-      url: "#"
+# menu:
+#   main:
+#     - name: "Lorem Ipsum"
+#       url: "#"
 
-    - name: "Sit voluptate pariatur"
-      url: "#"
-      parent: "Lorem Ipsum"
+#     - name: "Sit voluptate pariatur"
+#       url: "#"
+#       parent: "Lorem Ipsum"
 
-    - name: "Lorem porro"
-      url: "#"
-      parent: "Lorem Ipsum"
+#     - name: "Lorem porro"
+#       url: "#"
+#       parent: "Lorem Ipsum"
 
-    - name: "Amet velit in"
-      url: "#"
-      parent: "Lorem Ipsum"
+#     - name: "Amet velit in"
+#       url: "#"
+#       parent: "Lorem Ipsum"
 
 taxonomies:
   categories: 'categories'

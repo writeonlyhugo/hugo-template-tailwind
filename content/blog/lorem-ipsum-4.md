@@ -1,5 +1,6 @@
 ---
 title: "Lorem Ipsum Four"
+date: "2023-09-09"
 ---
 
 Lorem repudiandae quae blanditiis officia fugit Nulla repellat sequi impedit in

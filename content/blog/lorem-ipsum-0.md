@@ -1,5 +1,6 @@
 ---
 title: "Lorem Ipsum Zero"
+date: "2023-10-09"
 ---
 
 Lorem repudiandae quae blanditiis officia fugit Nulla repellat sequi impedit in

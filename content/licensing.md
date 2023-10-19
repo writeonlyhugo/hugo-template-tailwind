@@ -1,6 +1,6 @@
 ---
-title: "Services"
+title: "Licensing"
 menu:
-  main:
+  footer:
     weight: 300
 ---

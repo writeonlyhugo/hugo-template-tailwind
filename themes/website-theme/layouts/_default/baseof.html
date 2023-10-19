@@ -57,9 +57,9 @@
     <script src="{{ $main.Permalink }}" defer></script>
   </head>
   <body class="">
-    <div class="container min-h-screen flex flex-col px-4 py-4 mx-auto">
+    <div class="min-h-screen flex flex-col">
       {{ partial "shared/navbar" . }}
-      <div class="grow py-4">
+      <div class="grow pt-16 pb-32">
       {{ block "main" . }}{{ end }}
       </div>
       {{ partial "shared/footer" . }}
