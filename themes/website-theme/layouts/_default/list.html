@@ -1,15 +1,14 @@
 {{ define "main" }}
-<main class="prose mx-auto">
-  <h1 class="mb-8 text-center text-4xl">{{ .Title }}</h1>
-
-  <ul class="">
-    {{ range .Paginator.Pages }}
-    <li class="flex items-center justify-between">
-      <a class="my-0 text-blue-400 hover:to-blue-500" href="{{ .Permalink }}">{{ .Title }}</a>
-      <span class="my-0">{{ .Date.Format "Jan 2, 2006" }}</span>
-    </li>
-    {{ end }}
-    {{ template "_internal/pagination.html" . }}
-  </ul>
-</main>
+  <main class="prose mx-auto">
+    <h1 class="mb-8 text-center text-4xl">{{ .Title }}</h1>
+    <ul>
+      {{ range .Paginator.Pages }}
+        <li class="flex items-center justify-between">
+          <a class="my-0 text-blue-400 hover:to-blue-500" href="{{ .Permalink }}">{{ .Title }}</a>
+          <span class="my-0">{{ .Date.Format "Jan 2, 2006" }}</span>
+        </li>
+      {{ end }}
+      {{ template "_internal/pagination.html" . }}
+    </ul>
+  </main>
 {{ end }}

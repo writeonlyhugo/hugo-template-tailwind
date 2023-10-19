@@ -6,6 +6,14 @@ const config = {
   singleQuote: true,
   printWidth: 120,
   plugins: ['prettier-plugin-go-template', 'prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: ['*.html'],
+      options: {
+        parser: 'go-template',
+      },
+    },
+  ],
 }
 
 module.exports = config

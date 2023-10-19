@@ -1,7 +1,119 @@
-<nav class="mb-6 flex items-center justify-center">
-  <div class="space-x-4">
-    {{ range site.Menus.main }}
-    <a class="text-blue-600 hover:text-blue-700" href="{{ .URL }}"> {{ .Name }} </a>
-    {{ end }}
+<nav class="border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+  <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+    <a href="{{ site.BaseURL }}" class="flex items-center">
+      <span class="mr-3">
+        {{ partial "icons/box.html" . }}
+      </span>
+      <span class="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">{{ site.Title }}</span>
+    </a>
+    <button
+      data-collapse-toggle="navbar-dropdown"
+      type="button"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+      aria-controls="navbar-dropdown"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open Main Menu</span>
+      {{ partial "icons/menu" }}
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+      <ul
+        class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900"
+      >
+        {{ $page := .Page }}
+        {{ range $i, $e := site.Menus.main }}
+          {{ if .Children }}
+            <li class="relative">
+              {{ $activeMenuItem := or ($page.IsMenuCurrent .Menu .) ($page.HasMenuCurrent .Menu .) }}
+              {{ if $activeMenuItem }}
+                <button
+                  id="dropdownNavbarLink-{{ $i }}"
+                  data-dropdown-toggle="dropdownNavbar-{{ $i }}"
+                  class="flex w-full items-center justify-between rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:bg-blue-600 md:bg-transparent md:p-0 md:text-blue-700 md:dark:bg-transparent md:dark:text-blue-500"
+                >
+                  <a class="" href="{{ .URL }}">
+                    {{ .Name }}
+                  </a>
+                  {{ partial "icons/caret-down" }}
+                </button>
+              {{ else }}
+                <button
+                  id="dropdownNavbarLink-{{ $i }}"
+                  data-dropdown-toggle="dropdownNavbar-{{ $i }}"
+                  class="flex w-full items-center justify-between rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:text-white md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                >
+                  <a class="" href="{{ .URL }}">
+                    {{ .Name }}
+                  </a>
+                  <svg
+                    class="ml-2.5 h-2.5 w-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+              {{ end }}
+              <!-- Dropdown menu -->
+              <div
+                id="dropdownNavbar-{{ $i }}"
+                class="z-10 hidden w-full divide-y divide-gray-100 rounded-lg bg-white font-normal shadow dark:divide-gray-600 dark:bg-gray-700 md:w-44"
+              >
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownNavbarLink-{{ $i }}">
+                  {{ range .Children }}
+                    {{ $activeMenuSubItem := or ($page.IsMenuCurrent .Menu .) ($page.HasMenuCurrent .Menu .) }}
+                    {{ if $activeMenuSubItem }}
+                      <li>
+                        <a
+                          href="{{ .URL }}"
+                          class="block rounded bg-blue-700 px-4 py-2 text-white dark:bg-blue-600 md:bg-transparent md:text-blue-700 md:dark:bg-transparent md:dark:text-blue-500"
+                          >{{ .Name }}</a
+                        >
+                      </li>
+                    {{ else }}
+                      <li>
+                        <a
+                          href="{{ .URL }}"
+                          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          >{{ .Name }}</a
+                        >
+                      </li>
+                    {{ end }}
+                  {{ end }}
+                </ul>
+              </div>
+            </li>
+          {{ else }}
+            {{ $activeMenuItem := or ($page.IsMenuCurrent .Menu .) ($page.HasMenuCurrent .Menu .) }}
+            {{ if $activeMenuItem }}
+              <li>
+                <a
+                  href="{{ .URL }}"
+                  class="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:bg-blue-600 md:bg-transparent md:p-0 md:text-blue-700 md:dark:bg-transparent md:dark:text-blue-500"
+                  aria-current="page"
+                  >{{ .Name }}</a
+                >
+              </li>
+            {{ else }}
+              <li>
+                <a
+                  href="{{ .URL }}"
+                  class="block rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                  >{{ .Name }}</a
+                >
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
   </div>
 </nav>

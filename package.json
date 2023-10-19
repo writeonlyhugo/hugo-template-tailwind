@@ -1,7 +1,23 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/writeonlyhugo/templates/tailwind"
+  "comments": {
+    "dependencies": {
+      "@popperjs/core": "project",
+      "flowbite": "project"
+    },
+    "devDependencies": {
+      "@tailwindcss/typography": "project",
+      "autoprefixer": "project",
+      "postcss": "project",
+      "postcss-cli": "project",
+      "prettier": "project",
+      "prettier-plugin-go-template": "project",
+      "prettier-plugin-tailwindcss": "project",
+      "tailwindcss": "project"
+    }
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "flowbite": "^1.8.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
@@ -14,5 +30,9 @@
     "tailwindcss": "^3.3.2"
   },
   "name": "hugo-template-tailwind",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/writeonlyhugo/templates/tailwind"
+  },
   "version": "0.1.0"
 }

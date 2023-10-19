@@ -1,1 +1,1 @@
-console.log("JS Loaded.")
+import './node_modules/flowbite/dist/flowbite';

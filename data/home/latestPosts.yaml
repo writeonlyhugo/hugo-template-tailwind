@@ -1,0 +1,11 @@
+enable: true
+
+title: "Latest Blog Posts"
+content: >
+  Adipisicing culpa unde ratione deleniti earum. Nihil repellat cum aperiam
+  nulla quis Magnam aspernatur ratione suscipit ullam ipsum Reiciendis
+  aspernatur facere assumenda amet alias ab Debitis minima soluta eos aliquid.
+
+button:
+  label: "More Posts"
+  link: "/blog"
