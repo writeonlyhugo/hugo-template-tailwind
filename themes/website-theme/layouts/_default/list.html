@@ -10,7 +10,9 @@
           {{ end }}
         </li>
       {{ end }}
-      {{ template "_internal/pagination.html" . }}
     </ul>
   </main>
+  <div class="flex items-center justify-center pt-8">
+    {{ partial "shared/pagination.html" . }}
+  </div>
 {{ end }}

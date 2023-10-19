@@ -1,0 +1,195 @@
+{{- $validFormats := slice "default" "terse" }}
+
+{{- $msg1 := "When passing a map to the internal pagination template, one of the elements must be named 'page', and it must be set to the context of the current page." }}
+{{- $msg2 := "The 'format' specified in the map passed to the internal pagination template is invalid. Valid choices are: %s." }}
+
+{{- $page := . }}
+{{- $format := "default" }}
+
+{{- if reflect.IsMap . }}
+  {{- with .page }}
+    {{- $page = . }}
+  {{- else }}
+    {{- errorf $msg1 }}
+  {{- end }}
+  {{- with .format }}
+    {{- $format = lower . }}
+  {{- end }}
+{{- end }}
+
+{{- if in $validFormats $format }}
+  {{- if gt $page.Paginator.TotalPages 1 }}
+    <nav aria-label="Page navigation example">
+      <ul class="flex items-center -space-x-px h-10 text-base">
+        {{- with .Paginator }}
+          {{- $currentPageNumber := .PageNumber }}
+
+          {{- with .First }}
+            {{- if ne $currentPageNumber .PageNumber }}
+            <li>
+              <a
+                href="{{ .URL }}"
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 rounded-l-lg hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="First"
+                role="button"
+              >
+                <span class="sr-only">First</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M15.79 14.77a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L11.832 10l3.938 3.71a.75.75 0 01.02 1.06zm-6 0a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L5.832 10l3.938 3.71a.75.75 0 01.02 1.06z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+            {{- else }}
+            <li>
+              <a
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 rounded-l-lg hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="First"
+                role="button"
+                aria-disabled="true" 
+                tabindex="-1"
+              >
+                <span class="sr-only">First</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M15.79 14.77a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L11.832 10l3.938 3.71a.75.75 0 01.02 1.06zm-6 0a.75.75 0 01-1.06.02l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 111.04 1.08L5.832 10l3.938 3.71a.75.75 0 01.02 1.06z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+            {{- end }}
+          {{- end }}
+
+          {{- with .Prev }}
+            <li>
+              <a
+                href="{{ .URL }}"
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Previous" 
+                role="button" 
+              >
+                <span class="sr-only">Previous</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+          {{- else }}
+            <li>
+              <a
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Previous" 
+                role="button" 
+                aria-disabled="true" 
+                tabindex="-1"
+              >
+                <span class="sr-only">Previous</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+          {{- end }}
+
+          {{- $slots := 5 }}
+          {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+          {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+          {{- if lt (add (sub $end $start) 1) $slots }}
+            {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+          {{- end }}
+
+          {{- range $k := seq $start $end }}
+            {{- if eq $.Paginator.PageNumber $k }}
+            <li>
+              <a
+                class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 hover:text-blue-700 dark:text-white font-medium"
+                aria-current="page"
+                aria-label="Page {{ $k }}"
+                role="button"
+              >
+                {{ $k }}
+              </a>
+            </li>
+            {{- else }}
+            <li>
+              <a
+                href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}"
+                class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Page {{ $k }}"
+                role="button"
+              >
+                {{ $k }}
+              </a>
+            </li>
+            {{- end }}
+          {{- end }}
+
+          {{- with .Next }}
+            <li>
+              <a
+                href="{{ .URL }}"
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Next" 
+                role="button" 
+              >
+                <span class="sr-only">Next</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+          {{- else }}
+            <li>
+              <a
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Next" 
+                role="button" 
+                aria-disabled="true" 
+                tabindex="-1"
+              >
+                <span class="sr-only">Next</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+          {{- end }}
+
+          {{- with .Last }}
+            {{- if ne $currentPageNumber .PageNumber }}
+            <li>
+              <a
+                href="{{ .URL }}"
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 rounded-l-lg hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Last"
+                role="button"
+              >
+                <span class="sr-only">Last</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                  <path fill-rule="evenodd" d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+            {{- else }}
+            <li>
+              <a
+                class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 rounded-l-lg hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
+                aria-label="Last"
+                role="button"
+                aria-disabled="true" 
+                tabindex="-1"
+              >
+                <span class="sr-only">Last</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                  <path fill-rule="evenodd" d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </li>
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      </ul>
+    </nav>
+  {{- end }}
+{{- else }}
+  {{- errorf $msg2 (delimit $validFormats ", ") }}
+{{- end -}}
