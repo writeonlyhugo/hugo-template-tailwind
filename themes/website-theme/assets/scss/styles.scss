@@ -1,31 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.pagination {
-  &.pagination-default {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    list-style: none;
-
-    .page-item {
-      padding: 0;
-      margin: 0.4rem;
-      &.active {
-        .page-link {
-          font-weight: bold;
-        }
-      }
-      &.disabled {
-        .page-link {
-          color: lightgray;
-        }
-      }
-      .page-link {
-        text-decoration: none;
-      }
-    }
-  }
-}
