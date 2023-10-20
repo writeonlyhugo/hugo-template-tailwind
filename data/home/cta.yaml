@@ -1,0 +1,41 @@
+enable: true
+
+items:
+  - image:
+      light: "/images/cta-dashboard-mockup.svg"
+      dark: "/images/cta-dashboard-mockup-dark.svg"
+    title: "Lorem Ipsum"
+    text: >
+      Ipsum et consectetur impedit modi dignissimos illum? Cum harum facere
+      porro nam placeat? Eaque obcaecati voluptatum harum deleniti quod
+      blanditiis Eos illum laboriosam molestias harum voluptas omnis! Facilis
+      provident quam.
+    button:
+      label: "Get started"
+      link: "#"
+
+  - image:
+      light: "/images/cta-dashboard-mockup.svg"
+      dark: "/images/cta-dashboard-mockup-dark.svg"
+    title: "Lorem Ipsum"
+    text: >
+      Ipsum et consectetur impedit modi dignissimos illum? Cum harum facere
+      porro nam placeat? Eaque obcaecati voluptatum harum deleniti quod
+      blanditiis Eos illum laboriosam molestias harum voluptas omnis! Facilis
+      provident quam.
+    button:
+      label: "Get started"
+      link: "#"
+
+  - image:
+      light: "/images/cta-dashboard-mockup.svg"
+      dark: "/images/cta-dashboard-mockup-dark.svg"
+    title: "Lorem Ipsum"
+    text: >
+      Ipsum et consectetur impedit modi dignissimos illum? Cum harum facere
+      porro nam placeat? Eaque obcaecati voluptatum harum deleniti quod
+      blanditiis Eos illum laboriosam molestias harum voluptas omnis! Facilis
+      provident quam.
+    button:
+      label: "Get started"
+      link: "#"

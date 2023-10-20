@@ -1,6 +1,5 @@
 {{ define "main" }}
-  <article class="prose mx-auto px-4">
-    <h1 class="text-center">{{ .Title }}</h1>
-    {{ .Content }}
-  </article>
+  {{ with site.Data.home.hero }} {{ if .enable }} {{ partial "blocks/hero" . }} {{ end }} {{ end }}
+  {{ with site.Data.home.cta }} {{ if .enable }} {{ partial "blocks/cta" . }} {{ end }} {{ end }}
+  {{ with site.Data.home.blog }} {{ if .enable }} {{ partial "blocks/blog" . }} {{ end }} {{ end }}
 {{ end }}

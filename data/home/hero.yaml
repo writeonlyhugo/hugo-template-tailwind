@@ -1,12 +1,16 @@
 enable: true
 
-title: "Hugo Tailwind Template"
-content: >
+title: "Hero Block"
+subtitle: >
   Lorem ipsum Amet aliquid nesciunt quia blanditiis nesciunt. Adipisci dolores
   laboriosam reiciendis quas amet. Deleniti rem repellat quos accusamus quae,
   quia quia Sint quas fugiat nobis natus corrupti. Consequatur id temporibus
   laborum.
 
-button:
+buttonPrimary:
+  label: "Lorem Ipsum"
+  link: "#"
+
+buttonSecondary:
   label: "Lorem Ipsum"
   link: "#"
