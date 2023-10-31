@@ -1,25 +1,13 @@
 {
-  "comments": {
-    "dependencies": {
-      "@popperjs/core": "project",
-      "flowbite": "project"
-    },
-    "devDependencies": {
-      "@tailwindcss/typography": "project",
-      "autoprefixer": "project",
-      "postcss": "project",
-      "postcss-cli": "project",
-      "prettier": "project",
-      "prettier-plugin-go-template": "project",
-      "prettier-plugin-tailwindcss": "project",
-      "tailwindcss": "project"
-    }
+  "name": "hugo-template-tailwind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/writeonlyhugo/hugo-template-tailwind"
   },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "flowbite": "^1.8.1"
-  },
+  "version": "0.1.0",
+  "dependencies": {},
   "devDependencies": {
+    "@popperjs/core": "^2.11.8",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
@@ -27,12 +15,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-go-template": "^0.0.15",
     "prettier-plugin-tailwindcss": "^0.5.6",
-    "tailwindcss": "^3.3.2"
-  },
-  "name": "hugo-template-tailwind",
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/writeonlyhugo/templates/tailwind"
-  },
-  "version": "0.1.0"
+    "tailwindcss": "^3.3.2",
+    "flowbite": "^1.8.1"
+  }
 }
