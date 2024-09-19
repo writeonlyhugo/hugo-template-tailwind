@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Title -->
@@ -10,57 +10,73 @@
       <title>{{ .Title }} | {{ .Site.Title }}</title>
     {{ end }}
 
+
     <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{end}}" />
+    <meta
+      name="description"
+      content="{{ if .IsHome }}
+        {{ .Site.Params.description }}
+      {{ else if .Description }}
+        {{ .Description }}
+      {{ else }}
+        {{ .Site.Params.description }}
+      {{ end }}
+      "
+    />
 
     <!-- SEO -->
     {{ template "_internal/schema.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
 
+
     <!-- Favicons from https://favicon.io/ -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Google Analytics -->
-    {{ if .Site.GoogleAnalytics }}
+    {{ if .Site.Config.Services.GoogleAnalytics }}
       {{ template "_internal/google_analytics.html" . }}
     {{ end }}
+
 
     <!-- RSS -->
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
 
+
     <!-- Load SCSS -->
     {{ $styles := resources.Get "scss/styles.scss" }}
-    {{ $styles = $styles | resources.ToCSS (dict "outputStyle" "compressed" "includePaths" (slice "assets")) }}
-    {{ $styles = $styles | fingerprint | resources.PostCSS (dict "inlineImports" true) }}
+    {{ $styles = $styles | css.Sass (dict "outputStyle" "compressed" "includePaths" (slice "assets")) }}
+    {{ $styles = $styles | css.PostCSS (dict "inlineImports" true) | fingerprint }}
 
     {{ if hugo.IsProduction }}
-      {{ $styles = $styles | minify | resources.PostProcess }}
+      {{ $styles = $styles | minify | css.PostProcess }}
     {{ end }}
+
 
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
 
     <!-- Load JS -->
     {{- $main := resources.Get "js/main.js" -}}
-    {{- $main = $main | js.Build (dict "minify" "true") -}}
+    {{- $main = $main | js.Build (dict "minify" "true") | fingerprint -}}
 
     {{ if hugo.IsProduction }}
-      {{ $main = $main | minify | fingerprint }}
+      {{ $main = $main | minify }}
     {{ end }}
+
 
     <script src="{{ $main.Permalink }}" defer></script>
   </head>
   <body class="">
-    <div class="min-h-screen flex flex-col">
+    <div class="flex min-h-screen flex-col">
       {{ partial "shared/navbar" . }}
-      <div class="grow pt-16 pb-16">
-      {{ block "main" . }}{{ end }}
+      <div class="grow pb-16 pt-16">
+        {{ block "main" . }}{{ end }}
       </div>
       {{ partial "shared/footer" . }}
     </div>
