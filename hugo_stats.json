@@ -3,12 +3,16 @@
     "tags": [
       "a",
       "article",
+      "blockquote",
       "body",
       "button",
+      "code",
       "div",
+      "em",
       "footer",
       "h1",
       "h2",
+      "h3",
       "head",
       "html",
       "img",
@@ -17,11 +21,14 @@
       "main",
       "meta",
       "nav",
+      "ol",
       "p",
       "path",
+      "pre",
       "script",
       "section",
       "span",
+      "strong",
       "svg",
       "title",
       "ul"
@@ -82,6 +89,7 @@
       "h-2.5",
       "h-5",
       "hidden",
+      "highlight",
       "hover:bg-gray-100",
       "hover:bg-primary-800",
       "hover:text-blue-700",
@@ -197,13 +205,26 @@
       "z-10"
     ],
     "ids": [
+      "block-elements",
+      "blockquotes",
+      "code",
+      "code-blocks",
       "cta-0",
       "cta-1",
       "cta-2",
       "dropdownNavbar-3",
       "dropdownNavbarLink-3",
+      "emphasis",
+      "headers",
       "hero",
-      "navbar-dropdown"
+      "links",
+      "lists",
+      "navbar-dropdown",
+      "overview",
+      "paragraphs-and-line-breaks",
+      "philosophy",
+      "span-elements",
+      "this-is-a-header"
     ]
   }
 }

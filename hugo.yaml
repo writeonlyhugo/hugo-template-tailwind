@@ -16,7 +16,8 @@ params:
   images: []
 
 copyright: 'Lorem Ipsum'
-paginate: 5
+pagination:
+  pagerSize: 5
 
 # menu:
 #   main:
