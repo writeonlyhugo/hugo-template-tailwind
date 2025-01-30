@@ -49,22 +49,19 @@ build:
     enable: true
 
   cachebusters:
-    - source: "assets/watching/hugo_stats\\.json"
-      target: "styles\\.scss"
+    - source: "assets/notwatching/hugo_stats\\.json"
+      target: "scss"
 
     - source: "(postcss|tailwind)\\.config\\.js"
       target: 'scss'
 
-    - source: "assets/.*\\.(js|ts|jsx|tsx)"
-      target: 'js'
-
-    - source: "assets/.*\\.(.*)$"
-      target: '$1'
-
 module:
+  hugo_version:
+    min: "0.142.0"
   mounts:
     - source: 'hugo_stats.json'
-      target: 'assets/watching/hugo_stats.json'
+      target: 'assets/notwatching/hugo_stats.json'
+      disableWatch: true
 
 markup:
   highlight:
